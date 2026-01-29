@@ -1,0 +1,27 @@
+# Git
+.git
+.gitignore
+
+# Documentation
+Docs/
+Brand/
+Images/
+Claude.md
+*.md
+
+# Development
+frontend/node_modules
+frontend/.next
+.env*
+
+# IDE/Editor
+.vscode
+.idea
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Zone identifiers (Windows)
+*:Zone.Identifier

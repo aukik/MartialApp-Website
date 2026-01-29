@@ -1,0 +1,27 @@
+# nixpacks.toml - Next.js app in frontend/ subdirectory
+
+providers = ["node"]
+
+[variables]
+NODE_ENV = "production"
+NEXT_TELEMETRY_DISABLED = "1"
+PORT = "3000"
+HOSTNAME = "0.0.0.0"
+
+[phases.setup]
+nixPkgs = ["nodejs-20_x"]
+
+[phases.install]
+cmds = ["cd frontend && npm ci"]
+cacheDirectories = ["frontend/node_modules"]
+
+[phases.build]
+cmds = [
+  "cd frontend && npm run build",
+  "cp -r frontend/public frontend/.next/standalone/frontend/public || true",
+  "cp -r frontend/.next/static frontend/.next/standalone/frontend/.next/static || true"
+]
+cacheDirectories = ["frontend/.next/cache"]
+
+[start]
+cmd = "node frontend/.next/standalone/frontend/server.js"
