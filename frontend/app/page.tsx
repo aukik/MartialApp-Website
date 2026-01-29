@@ -15,9 +15,9 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <VideoSection />
         <FeaturesOverview />
         <AppGallery />
-        <VideoSection />
         <SocialProof />
         <FounderSection />
         <FaqSection />
