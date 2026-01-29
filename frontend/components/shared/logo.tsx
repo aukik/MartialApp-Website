@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 interface LogoProps {
   variant?: "light" | "dark";
@@ -7,17 +8,23 @@ interface LogoProps {
 
 export function Logo({ variant = "light" }: LogoProps) {
   return (
-    <Link href="/" className="flex items-center group">
-      <Image
-        src="/images/logo-wide.png"
-        alt="Martial Apps"
-        width={150}
-        height={40}
-        className={`h-9 w-auto transition-opacity group-hover:opacity-80 ${
-          variant === "dark" ? "brightness-0 invert" : ""
-        }`}
-        priority
-      />
+    <Link href="/" className="flex items-center gap-2 group">
+      {/* Logo icon */}
+      <div className="relative w-9 h-9 group-hover:scale-105 transition-transform duration-300">
+        <Image
+          src="/images/logo.png"
+          alt="Martial Apps logo"
+          fill
+          className="object-contain"
+          sizes="36px"
+        />
+      </div>
+
+      {/* Logo text */}
+      <span className="text-xl font-[family-name:var(--font-display)] font-semibold tracking-tight">
+        <span className={cn(variant === "light" ? "text-slate-900" : "text-white")}>Martial</span>
+        <span className="text-crimson-500">Apps</span>
+      </span>
     </Link>
   );
 }
