@@ -13,17 +13,16 @@ nixPkgs = ["nodejs_20"]
 
 [phases.install]
 cmds = ["cd frontend && npm ci"]
-# Cache npm's cache, not node_modules itself (which needs to persist to build phase)
 cacheDirectories = ["~/.npm"]
 
 [phases.build]
 dependsOn = ["install"]
 cmds = [
   "cd frontend && npm run build",
-  "cp -r frontend/public frontend/.next/standalone/frontend/public || true",
-  "cp -r frontend/.next/static frontend/.next/standalone/frontend/.next/static || true"
+  "cp -r frontend/public frontend/.next/standalone/public || true",
+  "cp -r frontend/.next/static frontend/.next/standalone/.next/static || true"
 ]
 cacheDirectories = ["frontend/.next/cache"]
 
 [start]
-cmd = "node frontend/.next/standalone/frontend/server.js"
+cmd = "node frontend/.next/standalone/server.js"
