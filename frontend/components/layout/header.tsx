@@ -33,6 +33,10 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <header
       className={cn(
@@ -50,7 +54,7 @@ export function Header() {
           )}
         >
           {/* Logo */}
-          <Logo />
+          <Logo onClick={scrollToTop} />
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1">
@@ -58,6 +62,7 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
+                onClick={item.name === "Home" ? scrollToTop : undefined}
                 className="relative px-4 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-crimson-600 group"
               >
                 {item.name}
@@ -108,7 +113,7 @@ export function Header() {
             >
               <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between py-4">
-                  <Logo />
+                  <Logo onClick={() => { setIsOpen(false); scrollToTop(); }} />
                 </div>
 
                 <nav className="flex flex-col gap-2 py-8">
@@ -116,7 +121,10 @@ export function Header() {
                     <Link
                       key={item.name}
                       href={item.href}
-                      onClick={() => setIsOpen(false)}
+                      onClick={() => {
+                        setIsOpen(false);
+                        if (item.name === "Home") scrollToTop();
+                      }}
                       className="flex items-center px-4 py-3 text-lg font-medium text-slate-700 hover:text-crimson-600 hover:bg-crimson-50 rounded-xl transition-all duration-200"
                     >
                       {item.name}
