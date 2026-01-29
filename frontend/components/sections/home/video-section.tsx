@@ -23,12 +23,12 @@ export function VideoSection() {
         {/* Header */}
         <AnimatedSection className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-[family-name:var(--font-display)] text-slate-900 mb-6">
-            Watch How Martial Apps{" "}
-            <span className="text-gradient">Transforms Your Dojo</span>
+            Reclaim Your Evenings.{" "}
+            <span className="text-gradient">Run Your Dojo Smarter.</span>
           </h2>
 
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Get a quick look at how Martial Apps simplifies daily operations, from attendance to payments to student progress tracking.
+            See how Martial Apps eliminates the paperwork and payment headaches so you can focus on what matters—teaching.
           </p>
         </AnimatedSection>
 

@@ -32,8 +32,8 @@ export function CtaSection() {
         <AnimatedSection className="text-center max-w-4xl mx-auto">
           {/* Headline */}
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-display)] text-white mb-8 leading-[1.1]">
-            Ready to Transform{" "}
-            <span className="text-gradient">Your Dojo?</span>
+            Ready to Stop Drowning{" "}
+            <span className="text-gradient">in Admin Work?</span>
           </h2>
 
           {/* Subheadline */}
