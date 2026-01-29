@@ -8,24 +8,24 @@ import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    question: "How much time will Martial Apps actually save me?",
-    answer: "Most dojo owners report spending 10-15 hours per week on admin tasks like attendance tracking, payment follow-ups, and scheduling. Martial Apps automates these workflows, giving you back your evenings and weekends. Our early testers estimate saving 8-12 hours weekly."
+    question: "How does the 2-week free trial work?",
+    answer: "Simply download Martial Apps from the App Store or Google Play. You'll get full access to all features for 2 weeks—no credit card required. At the end of your trial, choose a plan that works for your dojo or let the trial expire with no obligation."
   },
   {
-    question: "Will my students and parents actually use a new app?",
-    answer: "Yes! The app is designed to be simpler than texting. Students check in with a single tap. Parents get automatic progress updates and receipts. We've made adoption as easy as possible—no training required."
+    question: "What happens after my free trial ends?",
+    answer: "After 14 days, you'll be prompted to select a subscription plan to continue using Martial Apps. Your data is safely stored, so you can pick up right where you left off. If you choose not to subscribe, your account will be deactivated but your data remains secure for 30 days."
   },
   {
-    question: "What payment methods does Martial Apps support?",
-    answer: "We support all major credit and debit cards, plus automated recurring billing. Set up monthly or per-term payments and let the system handle collection. No more awkward conversations about late fees."
+    question: "Can I use Martial Apps on multiple devices?",
+    answer: "Yes! Your subscription works across all your devices—iPhone, iPad, Android phone, and tablet. Changes sync instantly, so you can check in students on your tablet and review reports on your phone seamlessly."
   },
   {
     question: "Is my student data secure?",
     answer: "Absolutely. All data is hosted in Canada with bank-level encryption. We're PIPEDA compliant and never sell or share your data. You own your information, always."
   },
   {
-    question: "When does Martial Apps launch, and how do I get early access?",
-    answer: "We're launching in 2026. Join the waitlist now to get founding member pricing locked in for life, plus direct input on features before launch. Early adopters help shape the product."
+    question: "Will my students and parents actually use a new app?",
+    answer: "Yes! The app is designed to be simpler than texting. Students check in with a single tap. Parents get automatic progress updates and receipts. We've made adoption as easy as possible—no training required."
   }
 ];
 
@@ -40,6 +40,7 @@ function FaqItem({ question, answer, isOpen, onClick }: {
       <button
         onClick={onClick}
         className="flex items-center justify-between w-full py-6 text-left group"
+        aria-expanded={isOpen}
       >
         <span className="text-lg font-semibold text-slate-900 group-hover:text-crimson-600 transition-colors pr-4">
           {question}

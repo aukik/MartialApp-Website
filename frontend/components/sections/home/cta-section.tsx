@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { Container } from "@/components/layout/container";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { Button } from "@/components/ui/button";
+import { Apple, Play, ArrowRight } from "lucide-react";
+import { APP_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/constants";
 
 export function CtaSection() {
   return (
@@ -28,36 +29,77 @@ export function CtaSection() {
         <AnimatedSection className="text-center max-w-4xl mx-auto">
           {/* Headline */}
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-display)] text-white mb-8 leading-[1.1]">
-            Ready to Stop Drowning in{" "}
-            <span className="text-gradient">Admin Work?</span>
+            Ready to Transform{" "}
+            <span className="text-gradient">Your Dojo?</span>
           </h2>
 
           {/* Subheadline */}
           <p className="text-xl text-slate-400 mb-12 max-w-2xl mx-auto">
-            Join dojo owners across Canada who are reclaiming their time. Get early access and founding member pricing.
+            Get early access and founding member pricing. Join dojo owners across Canada who are ready to reclaim their time.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              asChild
-              size="lg"
-              className="group text-base bg-crimson-500 hover:bg-crimson-600 text-white px-10 h-14 rounded-xl shadow-lg shadow-crimson-500/25 hover:shadow-crimson-500/40 transition-all duration-300"
+          {/* Primary CTA - Join the Waitlist */}
+          <Button
+            asChild
+            size="lg"
+            className="group text-lg bg-crimson-500 hover:bg-crimson-600 text-white px-10 h-16 rounded-xl shadow-lg shadow-crimson-500/25 hover:shadow-crimson-500/40 transition-all duration-300 mb-8"
+          >
+            <Link href="/contact">
+              Join the Waitlist
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </Button>
+
+          {/* Or download section */}
+          <p className="text-slate-500 mb-6">Or download the app now</p>
+
+          {/* App Store Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+            <a
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center gap-4 px-8 py-5 bg-white text-slate-900 rounded-2xl font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/20 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+              aria-label="Download on the App Store"
             >
-              <Link href="/contact">
-                Join the Waitlist
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              className="text-base bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 hover:border-white/30 px-10 h-14 rounded-xl transition-all duration-300"
+              {/* Shimmer effect */}
+              <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-crimson-100/50 to-transparent" />
+                </div>
+              </div>
+
+              <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center group-hover:bg-crimson-500 group-hover:scale-110 transition-all duration-300">
+                <Apple className="w-6 h-6" />
+              </div>
+              <div className="text-left">
+                <p className="text-xs text-slate-500 group-hover:text-crimson-500 transition-colors">Download on the</p>
+                <p className="text-lg font-semibold group-hover:text-crimson-600 transition-colors">App Store</p>
+              </div>
+            </a>
+
+            <a
+              href={GOOGLE_PLAY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative flex items-center gap-4 px-8 py-5 bg-white text-slate-900 rounded-2xl font-medium transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-white/20 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
+              aria-label="Get it on Google Play"
             >
-              <Link href="/contact">
-                Have Questions? Contact Us
-              </Link>
-            </Button>
+              {/* Shimmer effect */}
+              <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-crimson-100/50 to-transparent" />
+                </div>
+              </div>
+
+              <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center group-hover:bg-crimson-500 group-hover:scale-110 transition-all duration-300">
+                <Play className="w-6 h-6" />
+              </div>
+              <div className="text-left">
+                <p className="text-xs text-slate-500 group-hover:text-crimson-500 transition-colors">Get it on</p>
+                <p className="text-lg font-semibold group-hover:text-crimson-600 transition-colors">Google Play</p>
+              </div>
+            </a>
           </div>
 
           {/* Trust badges */}

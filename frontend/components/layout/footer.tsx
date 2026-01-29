@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/shared/logo";
+import { AppStoreButtons } from "@/components/shared/app-store-buttons";
 import { MapPin, Mail, ArrowUpRight, ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -47,7 +48,7 @@ export function Footer() {
 
   return (
     <footer className="bg-slate-900 relative overflow-hidden">
-      {/* Newsletter Section */}
+      {/* Download Section */}
       <div className="relative border-b border-slate-800">
         {/* Background decorations */}
         <div className="absolute inset-0 pointer-events-none">
@@ -62,19 +63,25 @@ export function Footer() {
               <div className="flex items-center gap-3 mb-4">
                 <div className="h-px w-8 bg-crimson-500" />
                 <span className="text-xs font-semibold tracking-[0.15em] uppercase text-crimson-400">
-                  Stay Updated
+                  Download Now
                 </span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-display)] text-white mb-4">
-                Get Founding Member Pricing
+                Start Your Free Trial Today
               </h2>
-              <p className="text-slate-400 leading-relaxed max-w-lg">
-                Join the waitlist for early access, locked-in pricing, and exclusive updates. Be among the first dojo owners to transform their operations.
+              <p className="text-slate-400 leading-relaxed max-w-lg mb-8">
+                Download Martial Apps and get 2 weeks completely free. No credit card required. Transform your dojo operations in minutes.
               </p>
+
+              {/* App Store Buttons */}
+              <AppStoreButtons variant="light" />
             </div>
 
-            {/* Right - Form */}
+            {/* Right - Newsletter Form */}
             <div>
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Stay Updated
+              </h3>
               {!isSubscribed ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="flex flex-col sm:flex-row gap-3">
@@ -105,14 +112,14 @@ export function Footer() {
                         </>
                       ) : (
                         <>
-                          Secure My Spot
+                          Subscribe
                           <ArrowRight className="ml-2 h-5 w-5" />
                         </>
                       )}
                     </Button>
                   </div>
                   <p className="text-slate-500 text-sm">
-                    We respect your inbox. Only important updates, no spam.
+                    Get product updates, tips, and special offers. No spam.
                   </p>
                 </form>
               ) : (
@@ -122,9 +129,9 @@ export function Footer() {
                       <Check className="w-6 h-6 text-emerald-400" />
                     </div>
                     <div>
-                      <p className="text-white font-semibold">You're on the list!</p>
+                      <p className="text-white font-semibold">You're subscribed!</p>
                       <p className="text-slate-400 text-sm">
-                        We'll notify you when we launch.
+                        We'll keep you updated with the latest news.
                       </p>
                     </div>
                   </div>
@@ -211,10 +218,10 @@ export function Footer() {
           <div className="flex items-center gap-6">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-sm text-slate-400">Launching 2026</span>
+              <span className="text-sm text-slate-400">Available Now</span>
             </div>
             <div className="h-4 w-px bg-slate-700" />
-            <span className="text-sm text-slate-500">Backed by Invest Ottawa</span>
+            <span className="text-sm text-slate-500">2-Week Free Trial</span>
           </div>
         </div>
       </div>

@@ -4,6 +4,30 @@ import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { AnimatedSection } from "@/components/shared/animated-section";
 
+// Custom hand-crafted SVG icons
+const SunsetIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M12 14c2.5 0 4.5-2 4.5-4.5S14.5 5 12 5s-4.5 2-4.5 4.5S9.5 14 12 14z" stroke="currentColor" strokeWidth="2"/>
+    <path d="M12 2v2" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M4.93 7.93l1.41 1.41" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M19.07 7.93l-1.41 1.41" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+  </svg>
+);
+
+const HeartIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 21C12 21 4 14.5 4 9.5C4 6.5 6.5 4 9.5 4C11 4 12 5 12 5C12 5 13 4 14.5 4C17.5 4 20 6.5 20 9.5C20 14.5 12 21 12 21Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+const GrowthIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 20L9 14L13 17L19 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M15 8h4v4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
 const features = [
   {
     title: "Automated Attendance",
@@ -43,6 +67,12 @@ const features = [
   }
 ];
 
+const benefits = [
+  { icon: SunsetIcon, stat: "10+ hrs", label: "saved weekly" },
+  { icon: HeartIcon, stat: "98%", label: "parent satisfaction" },
+  { icon: GrowthIcon, stat: "2x", label: "student retention" },
+];
+
 export function FeaturesOverview() {
   return (
     <section className="py-24 md:py-32 bg-white relative overflow-hidden">
@@ -60,9 +90,24 @@ export function FeaturesOverview() {
             <span className="text-gradient">Run Your Dojo Smarter.</span>
           </h2>
 
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
             Purpose-built tools that eliminate the paperwork and payment headaches dojo owners face every day.
           </p>
+
+          {/* Benefits row - subtle display */}
+          <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+            {benefits.map((benefit, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-crimson-50 flex items-center justify-center">
+                  <benefit.icon className="w-5 h-5 text-crimson-500" />
+                </div>
+                <div className="text-left">
+                  <p className="text-lg font-semibold text-slate-900">{benefit.stat}</p>
+                  <p className="text-xs text-slate-500">{benefit.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </AnimatedSection>
 
         {/* Features grid with images */}

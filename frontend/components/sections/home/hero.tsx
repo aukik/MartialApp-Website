@@ -1,10 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
 import { Container } from "@/components/layout/container";
+import { AppStoreButtons } from "@/components/shared/app-store-buttons";
 import gsap from "gsap";
 
 export function Hero() {
@@ -91,9 +89,9 @@ export function Hero() {
               ref={titleRef}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-display)] leading-[1.1] tracking-tight opacity-0"
             >
-              <span className="text-slate-900">Stop Chasing Payments.</span>
+              <span className="text-slate-900">We Handle the Admin.</span>
               <br />
-              <span className="text-gradient">Start Growing Your Dojo.</span>
+              <span className="text-gradient">You Focus on Teaching.</span>
             </h1>
 
             {/* Subtitle */}
@@ -104,39 +102,16 @@ export function Hero() {
               Automate the admin work that drains your time. Martial Apps handles attendance, billing, and student tracking so you can focus on what you do best: teaching.
             </p>
 
-            {/* CTAs */}
-            <div ref={ctaRef} className="flex flex-col sm:flex-row gap-4 opacity-0">
-              <Button
-                asChild
-                size="lg"
-                className="group text-base bg-crimson-500 hover:bg-crimson-600 text-white px-8 h-14 rounded-xl shadow-lg shadow-crimson-500/25 hover:shadow-crimson-500/40 transition-all duration-300"
-              >
-                <Link href="/contact">
-                  Join the Waitlist
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="outline"
-                size="lg"
-                className="group text-base border-slate-300 text-slate-700 hover:bg-crimson-50 hover:border-crimson-300 hover:text-crimson-600 px-8 h-14 rounded-xl transition-all duration-300"
-              >
-                <Link href="/features">
-                  <Play className="mr-2 h-5 w-5 text-crimson-500" />
-                  See Features
-                </Link>
-              </Button>
+            {/* CTAs - App Store Buttons Only */}
+            <div ref={ctaRef} className="opacity-0">
+              <AppStoreButtons variant="light" size="large" />
             </div>
 
             {/* Trust indicators */}
             <div className="flex flex-wrap items-center gap-6 pt-4">
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-semibold tracking-wider uppercase text-crimson-500">2026</span>
-                <span className="text-sm text-slate-500">Launch</span>
-              </div>
+              <span className="text-sm text-slate-500">Works on iOS & Android</span>
               <div className="h-4 w-px bg-slate-300" />
-              <span className="text-sm text-slate-500">Invest Ottawa Backed</span>
+              <span className="text-sm text-slate-500">Syncs across devices</span>
               <div className="h-4 w-px bg-slate-300" />
               <span className="text-sm text-slate-500">Canadian Hosted</span>
             </div>

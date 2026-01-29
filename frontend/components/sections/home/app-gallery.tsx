@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { AnimatedSection } from "@/components/shared/animated-section";
+import { AppStoreButtons } from "@/components/shared/app-store-buttons";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Apple, Play } from "lucide-react";
+import { Check } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -56,8 +57,16 @@ export function AppGallery() {
     return () => ctx.revert();
   }, []);
 
+  const features = [
+    "2-week free trial, no credit card",
+    "Works on iPhone, iPad & Android",
+    "Syncs instantly across devices",
+    "Canadian-hosted, bank-level security",
+  ];
+
   return (
     <section
+      id="download"
       ref={sectionRef}
       className="py-24 md:py-32 bg-slate-900 relative overflow-hidden"
     >
@@ -73,7 +82,7 @@ export function AppGallery() {
           </h2>
 
           <p className="text-lg text-slate-300 max-w-2xl mx-auto">
-            Students, parents, and instructors stay connected anywhere. Check schedules, track progress, and manage your dojo from your phone.
+            Download Martial Apps today and start your free trial. Manage your dojo from anywhere—check schedules, track progress, and stay connected with students and parents.
           </p>
         </AnimatedSection>
 
@@ -137,18 +146,19 @@ export function AppGallery() {
           </div>
         </div>
 
-        {/* Platform badges */}
-        <AnimatedSection className="flex flex-wrap items-center justify-center gap-4 mt-12 md:mt-16">
-          <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/20">
-            <Apple className="w-5 h-5 text-white/80" />
-            <span className="text-sm text-white/80">iOS App</span>
+        {/* App Store Buttons */}
+        <AnimatedSection className="flex flex-col items-center gap-6 mt-12 md:mt-16">
+          <AppStoreButtons variant="light" size="large" />
+
+          {/* Feature bullets */}
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4">
+            {features.map((feature, index) => (
+              <div key={index} className="flex items-center gap-2 text-slate-400 text-sm">
+                <Check className="w-4 h-4 text-crimson-400" />
+                <span>{feature}</span>
+              </div>
+            ))}
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full border border-white/20">
-            <Play className="w-5 h-5 text-white/80" />
-            <span className="text-sm text-white/80">Android App</span>
-          </div>
-          <div className="h-4 w-px bg-white/20" />
-          <span className="text-sm text-white/60">Real-time sync across all devices</span>
         </AnimatedSection>
       </Container>
     </section>

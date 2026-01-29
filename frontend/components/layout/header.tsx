@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, ArrowRight } from "lucide-react";
+import { Menu, ArrowRight, Download } from "lucide-react";
 import { Logo } from "@/components/shared/logo";
 import { Button } from "@/components/ui/button";
 import {
@@ -70,16 +70,18 @@ export function Header() {
           <div className="hidden md:flex items-center gap-3">
             <Button
               asChild
-              variant="outline"
-              className="border-crimson-500 text-crimson-600 hover:bg-crimson-50 px-5 h-10 rounded-xl transition-all duration-300"
+              className="group bg-crimson-500 hover:bg-crimson-600 text-white px-5 h-10 rounded-xl shadow-lg shadow-crimson-500/20 hover:shadow-crimson-500/30 transition-all duration-300 animate-pulse-glow"
+              aria-label="Start your free 2-week trial"
             >
-              <Link href="/contact">
-                Two Week Free Trial
+              <Link href="#download">
+                <Download className="mr-2 h-4 w-4" />
+                Start Free Trial
               </Link>
             </Button>
             <Button
               asChild
-              className="group bg-crimson-500 hover:bg-crimson-600 text-white px-5 h-10 rounded-xl shadow-lg shadow-crimson-500/20 hover:shadow-crimson-500/30 transition-all duration-300"
+              variant="outline"
+              className="border-slate-300 text-slate-700 hover:bg-slate-50 px-5 h-10 rounded-xl transition-all duration-300"
             >
               <Link href="/contact">
                 Contact Us
@@ -125,16 +127,17 @@ export function Header() {
                 <div className="mt-auto pb-8 space-y-3">
                   <Button
                     asChild
-                    variant="outline"
-                    className="w-full border-crimson-500 text-crimson-600 hover:bg-crimson-50 h-12 rounded-xl"
+                    className="w-full bg-crimson-500 hover:bg-crimson-600 text-white h-12 rounded-xl"
                   >
-                    <Link href="/contact" onClick={() => setIsOpen(false)}>
-                      Two Week Free Trial
+                    <Link href="#download" onClick={() => setIsOpen(false)}>
+                      <Download className="mr-2 h-4 w-4" />
+                      Start Free Trial
                     </Link>
                   </Button>
                   <Button
                     asChild
-                    className="w-full bg-crimson-500 hover:bg-crimson-600 text-white h-12 rounded-xl"
+                    variant="outline"
+                    className="w-full border-slate-300 text-slate-700 hover:bg-slate-50 h-12 rounded-xl"
                   >
                     <Link href="/contact" onClick={() => setIsOpen(false)}>
                       Contact Us
@@ -143,7 +146,7 @@ export function Header() {
                   </Button>
 
                   <p className="text-center text-xs text-slate-500 mt-6">
-                    Launching 2026 - Backed by Invest Ottawa
+                    2-Week Free Trial • No Credit Card Required
                   </p>
                 </div>
               </div>

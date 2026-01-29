@@ -5,9 +5,9 @@ import { AnimatedSection } from "@/components/shared/animated-section";
 import { Play, CheckCircle } from "lucide-react";
 
 const videoFeatures = [
-  "See how students check in with a single tap",
-  "Watch automated payment reminders in action",
-  "Preview the belt progression tracking system",
+  "Single tap check-in for students",
+  "Automated payment reminders",
+  "Belt progression tracking system",
 ];
 
 export function VideoSection() {
