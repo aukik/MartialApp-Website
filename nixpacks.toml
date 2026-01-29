@@ -9,7 +9,7 @@ PORT = "3000"
 HOSTNAME = "0.0.0.0"
 
 [phases.setup]
-nixPkgs = ["nodejs-20_x"]
+nixPkgs = ["nodejs_20"]
 
 [phases.install]
 cmds = ["cd frontend && npm ci"]
