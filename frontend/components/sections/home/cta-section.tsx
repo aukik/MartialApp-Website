@@ -4,8 +4,10 @@ import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import { AnimatedSection } from "@/components/shared/animated-section";
 import { Button } from "@/components/ui/button";
-import { Apple, Play, ArrowRight } from "lucide-react";
+import { Play } from "lucide-react";
 import { APP_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/constants";
+import { AppStoreIcon } from "@/components/shared/icons";
+
 
 export function CtaSection() {
   return (
@@ -38,17 +40,28 @@ export function CtaSection() {
             Get early access and founding member pricing. Join dojo owners across Canada who are ready to reclaim their time.
           </p>
 
-          {/* Primary CTA - Join the Waitlist */}
-          <Button
-            asChild
-            size="lg"
-            className="group text-lg bg-crimson-500 hover:bg-crimson-600 text-white px-10 h-16 rounded-xl shadow-lg shadow-crimson-500/25 hover:shadow-crimson-500/40 transition-all duration-300 mb-8"
-          >
-            <Link href="/contact">
-              Join the Waitlist
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </Button>
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
+            <Button
+              asChild
+              size="lg"
+              className="text-lg bg-crimson-500 hover:bg-crimson-600 text-white px-10 h-16 rounded-xl shadow-lg shadow-crimson-500/25 hover:shadow-crimson-500/40 transition-all duration-300"
+            >
+              <Link href="/contact">
+                Join the Waitlist
+              </Link>
+            </Button>
+
+            <Button
+              asChild
+              size="lg"
+              className="text-lg bg-white hover:bg-slate-100 text-slate-900 px-10 h-16 rounded-xl shadow-lg transition-all duration-300"
+            >
+              <Link href="/contact">
+                Have Questions? Contact Us
+              </Link>
+            </Button>
+          </div>
 
           {/* Or download section */}
           <p className="text-slate-500 mb-6">Or download the app now</p>
@@ -65,16 +78,16 @@ export function CtaSection() {
               {/* Shimmer effect */}
               <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-crimson-100/50 to-transparent" />
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-slate-200/50 to-transparent" />
                 </div>
               </div>
 
-              <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center group-hover:bg-crimson-500 group-hover:scale-110 transition-all duration-300">
-                <Apple className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                <AppStoreIcon className="w-6 h-6" />
               </div>
               <div className="text-left">
-                <p className="text-xs text-slate-500 group-hover:text-crimson-500 transition-colors">Download on the</p>
-                <p className="text-lg font-semibold group-hover:text-crimson-600 transition-colors">App Store</p>
+                <p className="text-xs text-slate-500 group-hover:text-slate-700 transition-colors">Download on the</p>
+                <p className="text-lg font-semibold text-slate-900">App Store</p>
               </div>
             </a>
 
@@ -88,16 +101,16 @@ export function CtaSection() {
               {/* Shimmer effect */}
               <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-crimson-100/50 to-transparent" />
+                  <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-slate-200/50 to-transparent" />
                 </div>
               </div>
 
-              <div className="w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center group-hover:bg-crimson-500 group-hover:scale-110 transition-all duration-300">
-                <Play className="w-6 h-6" />
+              <div className="w-12 h-12 rounded-xl bg-black text-white flex items-center justify-center group-hover:scale-110 transition-all duration-300">
+                <Play className="w-6 h-6" fill="white" />
               </div>
               <div className="text-left">
-                <p className="text-xs text-slate-500 group-hover:text-crimson-500 transition-colors">Get it on</p>
-                <p className="text-lg font-semibold group-hover:text-crimson-600 transition-colors">Google Play</p>
+                <p className="text-xs text-slate-500 group-hover:text-slate-700 transition-colors">Get it on</p>
+                <p className="text-lg font-semibold text-slate-900">Google Play</p>
               </div>
             </a>
           </div>

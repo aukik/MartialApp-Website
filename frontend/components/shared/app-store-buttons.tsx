@@ -1,8 +1,9 @@
 "use client";
 
-import { Apple, Play } from "lucide-react";
+import { Play } from "lucide-react";
 import { APP_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { AppStoreIcon } from "@/components/shared/icons";
 
 interface AppStoreButtonsProps {
   variant?: "light" | "dark";
@@ -67,7 +68,7 @@ export function AppStoreButtons({
         </div>
 
         <div className={iconContainerStyles}>
-          <Apple className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
+          <AppStoreIcon className={isLarge ? "w-5 h-5" : "w-4 h-4"} />
         </div>
         <div className={textStyles}>
           <p className={labelStyles}>Download on the</p>
