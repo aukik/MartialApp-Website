@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/shared/logo";
-import { AppStoreButtons } from "@/components/shared/app-store-buttons";
-import { MapPin, Mail, ArrowUpRight, ArrowRight, Check } from "lucide-react";
+import { MapPin, Mail, ArrowUpRight, Send, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
@@ -29,119 +28,20 @@ export function Footer() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (!email || !email.includes("@")) {
       toast.error("Please enter a valid email address");
       return;
     }
-
     setIsSubmitting(true);
-
-    // Mock submission with 1.5s delay
     await new Promise(resolve => setTimeout(resolve, 1500));
-
     setIsSubmitting(false);
     setIsSubscribed(true);
-    toast.success("Successfully subscribed to our newsletter!");
+    toast.success("Successfully subscribed!");
     setEmail("");
   };
 
   return (
     <footer className="bg-slate-900 relative overflow-hidden">
-      {/* Download Section */}
-      <div className="relative border-b border-slate-800">
-        {/* Background decorations */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-crimson-500/10 rounded-full blur-[150px]" />
-          <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-crimson-500/5 rounded-full blur-[100px]" />
-        </div>
-
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left - Text content */}
-            <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="h-px w-8 bg-crimson-500" />
-                <span className="text-xs font-semibold tracking-[0.15em] uppercase text-crimson-400">
-                  Download Now
-                </span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-[family-name:var(--font-display)] text-white mb-4">
-                Start Your Free Trial Today
-              </h2>
-              <p className="text-slate-400 leading-relaxed max-w-lg mb-8">
-                Download Martial Apps and get 2 weeks completely free. No credit card required. Transform your dojo operations in minutes.
-              </p>
-
-              {/* App Store Buttons */}
-              <AppStoreButtons variant="light" />
-            </div>
-
-            {/* Right - Newsletter Form */}
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-4">
-                Stay Updated
-              </h3>
-              {!isSubscribed ? (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <div className="relative flex-1">
-                      <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" />
-                      <Input
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        disabled={isSubmitting}
-                        className="h-14 pl-12 bg-slate-800 border-slate-700 text-white placeholder:text-slate-500 rounded-xl focus:border-crimson-500 focus:ring-crimson-500/20"
-                        required
-                      />
-                    </div>
-                    <Button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="h-14 px-8 bg-crimson-500 hover:bg-crimson-600 text-white rounded-xl font-semibold shadow-lg shadow-crimson-500/20 transition-all duration-300"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <svg className="animate-spin -ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24">
-                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                          </svg>
-                          Subscribing...
-                        </>
-                      ) : (
-                        <>
-                          Subscribe
-                          <ArrowRight className="ml-2 h-5 w-5" />
-                        </>
-                      )}
-                    </Button>
-                  </div>
-                  <p className="text-slate-500 text-sm">
-                    Get product updates, tips, and special offers. No spam.
-                  </p>
-                </form>
-              ) : (
-                <div className="bg-slate-800/50 backdrop-blur-sm rounded-2xl p-6 border border-slate-700">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-6 h-6 text-emerald-400" />
-                    </div>
-                    <div>
-                      <p className="text-white font-semibold">You're subscribed!</p>
-                      <p className="text-slate-400 text-sm">
-                        We'll keep you updated with the latest news.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
@@ -203,6 +103,60 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+
+        {/* Newsletter Section */}
+        <div className="mt-12 p-6 md:p-8 rounded-2xl bg-slate-800/50 border border-slate-700/50">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div className="flex-1">
+              <h3 className="text-lg font-semibold text-white mb-1">
+                Stay Updated
+              </h3>
+              <p className="text-slate-400 text-sm">
+                Get product updates, tips, and special offers. No spam.
+              </p>
+            </div>
+
+            <div className="flex-1 max-w-md">
+              {!isSubscribed ? (
+                <form onSubmit={handleSubmit} className="flex gap-2">
+                  <div className="relative flex-1">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+                    <Input
+                      type="email"
+                      placeholder="Enter your email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      disabled={isSubmitting}
+                      className="h-11 pl-10 bg-slate-900 border-slate-700 text-white placeholder:text-slate-500 rounded-lg focus:border-crimson-500 focus:ring-crimson-500/20"
+                      required
+                    />
+                  </div>
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="h-11 px-5 bg-crimson-500 hover:bg-crimson-600 text-white rounded-lg font-medium transition-all duration-300"
+                  >
+                    {isSubmitting ? (
+                      <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                    ) : (
+                      <Send className="h-4 w-4" />
+                    )}
+                  </Button>
+                </form>
+              ) : (
+                <div className="flex items-center gap-3 text-emerald-400">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
+                    <Check className="w-4 h-4" />
+                  </div>
+                  <span className="text-sm font-medium">You're subscribed!</span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
 

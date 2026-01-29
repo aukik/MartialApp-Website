@@ -20,8 +20,8 @@ export default function Home() {
         <VideoSection />
         <SocialProof />
         <FounderSection />
-        <CtaSection />
         <FaqSection />
+        <CtaSection />
       </main>
       <Footer />
     </>

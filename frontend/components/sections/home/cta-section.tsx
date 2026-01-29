@@ -11,19 +11,20 @@ import { AppStoreIcon } from "@/components/shared/icons";
 
 export function CtaSection() {
   return (
-    <section className="py-24 md:py-32 bg-slate-900 relative overflow-hidden">
+    <section className="py-24 md:py-32 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-900 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-crimson-500/10 rounded-full blur-[200px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-crimson-500/15 rounded-full blur-[200px]" />
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-cream-50/5 to-transparent" />
       </div>
 
       {/* Grid pattern */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
+        className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px'
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
         }}
       />
 

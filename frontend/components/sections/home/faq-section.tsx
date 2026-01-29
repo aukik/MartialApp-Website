@@ -73,11 +73,11 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="py-24 md:py-32 bg-white relative overflow-hidden">
+    <section id="faq" className="py-24 md:py-32 bg-cream-50 relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-crimson-100/40 rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-blue-100/30 rounded-full blur-[100px]" />
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-crimson-100/30 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-crimson-50/40 rounded-full blur-[100px]" />
       </div>
 
       <Container className="relative z-10">
@@ -108,7 +108,7 @@ export function FaqSection() {
 
           {/* FAQ List - Right side */}
           <AnimatedSection delay={0.2} className="lg:col-span-3">
-            <div className="bg-white rounded-3xl border border-slate-200 shadow-soft-lg p-6 md:p-8">
+            <div className="bg-white rounded-3xl border border-slate-200/80 shadow-soft-xl p-6 md:p-8">
               {faqs.map((faq, index) => (
                 <FaqItem
                   key={index}
