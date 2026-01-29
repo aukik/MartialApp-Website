@@ -24,8 +24,8 @@ const faqs = [
     answer: "Absolutely. All data is hosted in Canada with bank-level encryption. We're PIPEDA compliant and never sell or share your data. You own your information, always."
   },
   {
-    question: "Will my students and parents actually use a new app?",
-    answer: "Yes! The app is designed to be simpler than texting. Students check in with a single tap. Parents get automatic progress updates and receipts. We've made adoption as easy as possible—no training required."
+    question: "Will my students and parents find the new app hard to use?",
+    answer: "No! The app is designed to be simpler than texting. Students check in with a single tap. Parents get automatic progress updates and receipts. We've made adoption as easy as possible—no training required."
   }
 ];
 
